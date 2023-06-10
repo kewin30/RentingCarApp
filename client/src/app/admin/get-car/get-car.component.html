@@ -1,0 +1,40 @@
+<h2>Get Car</h2>
+<div class="mb-3">
+    <label for="vinInput" class="form-label">VIN:</label>
+    <input type="text" id="vinInput" class="form-control" [(ngModel)]="vin" placeholder="Enter VIN" autocomplete="off">
+    <button class="btn btn-primary mt-2" (click)="getCarByVin()">Get Car</button>
+</div>
+
+<div *ngIf="carData" class="card mt-4">
+    <div class="card-body">
+        <h3 class="card-title">Car Data:</h3>
+        <p class="card-text"><strong>VIN:</strong> {{ carData.vin }}</p>
+        <p class="card-text"><strong>GPS Enabled:</strong> {{ carData.gpsEnabled }}</p>
+        <p class="card-text"><strong>Plate:</strong> {{ carData.plate }}</p>
+        <p class="card-text"><strong>Model:</strong> {{ carData.model }}</p>
+        <p class="card-text"><strong>Car Year:</strong> {{ carData.carYear }}</p>
+        <p class="card-text"><strong>Color:</strong> {{ carData.color }}</p>
+        <p class="card-text"><strong>Weight:</strong> {{ carData.weight }}</p>
+        <p class="card-text"><strong>Prize for Day:</strong> {{ carData.prizeForDay }}</p>
+        <p class="card-text"><strong>Prize for Week:</strong> {{ carData.prizeForWeek }}</p>
+        <p class="card-text"><strong>Availability:</strong> {{ carData.availability }}</p>
+        <p class="card-text"><strong>Place:</strong> {{ carData.place }}</p>
+        <p class="card-text"><strong>User: </strong><br>
+            <ng-container *ngIf="carData.user">
+                <span><strong>Login: </strong> {{ carData.user.login }}</span><br>
+                <span><strong>Username: </strong> {{ carData.user.username }}</span><br>
+                <span><strong>Last Name: </strong> {{ carData.user.lastName }}</span><br>
+                <span><strong>Gender: </strong> {{ carData.user.gender }}</span><br>
+                <span><strong>Email: </strong> {{ carData.user.email }}</span><br>
+                <span><strong>Phone Number: </strong> {{ carData.user.phoneNumber }}</span>
+            </ng-container>
+            <ng-container *ngIf="!carData.user">
+                This car doesn't have any user assigned!
+            </ng-container>
+        </p>
+        <p class="card-text"><strong>Photo:</strong></p>
+        <div class="card-img-wrapper">
+            <img [src]="carData.url" [alt]="carData.model" class="card-img-top">
+        </div>
+    </div>
+</div>

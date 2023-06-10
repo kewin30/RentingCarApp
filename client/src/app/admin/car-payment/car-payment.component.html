@@ -1,0 +1,18 @@
+<div class="container">
+    <h1>Payment Information</h1>
+    <div class="form-group">
+      <label for="vinInput">Enter VIN:</label>
+      <input type="text" class="form-control" id="vinInput" [(ngModel)]="vin" placeholder="Enter VIN" autocomplete="off">
+    </div>
+    <button class="btn btn-primary" (click)="getPaymentData()">Get Payment</button>
+  
+    <div *ngIf="paymentData">
+      <h3>Payment Details:</h3>
+      <p><strong>Model:</strong> {{ paymentData.model }}</p>
+      <p><strong>Plate:</strong> {{ paymentData.plate }}</p>
+      <p><strong>Rented From:</strong> {{ paymentData.rentedFrom }}</p>
+      <p><strong>Rented To:</strong> {{ paymentData.rentedTo }}</p>
+      <p><strong>Prize:</strong> {{ paymentData.prize }}</p>
+    </div>
+  </div>
+  

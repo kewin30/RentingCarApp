@@ -1,0 +1,18 @@
+<div class="container">
+    <h1>Update Data Component</h1>
+    <div class="form-group">
+      <label for="vinInput">Enter VIN:</label>
+      <input type="text" class="form-control" id="vinInput" [(ngModel)]="vin" autocomplete="off">
+    </div>
+    <button class="btn btn-primary" (click)="updateData()">Pay for the car:</button>
+  
+    <div *ngIf="data">
+      <h2>Data received:</h2>
+      <p>Prize: {{ data.prize }}</p>
+      <p>Rented From: {{ data.rentedFrom }}</p>
+      <p>Rented To: {{ data.rentedTo }}</p>
+      <p>Model: {{ data.model }}</p>
+      <p>Plate: {{ data.plate }}</p>
+    </div>
+  </div>
+  

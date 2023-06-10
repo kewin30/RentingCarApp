@@ -1,0 +1,41 @@
+<h2>Admin Panel!</h2>
+<div class="tab-panel">
+    <tabset class="member-tabset">
+        <tab heading="Add Car" *appHasRole="['Admin']">
+            <div class="container">
+                <app-add-car-management></app-add-car-management> 
+            </div>
+        </tab>
+        <tab heading="Get car" *appHasRole="['Admin']">
+            <div class="container">
+                <app-get-car></app-get-car>
+            </div>
+        </tab>
+        <tab heading="Get user" *appHasRole="['Admin']">
+            <div class="container">
+                <app-get-user></app-get-user>
+            </div>
+        </tab>
+        <tab heading="Get prize for the car" *appHasRole="['Admin']">
+            <div class="container">
+                <app-car-payment></app-car-payment>
+            </div>
+        </tab>
+        <tab heading="Get user before" *appHasRole="['Admin']">
+            <div class="container">
+                <app-user-before></app-user-before>
+            </div>
+        </tab>
+        <tab heading="Pay for the car" *appHasRole="['Admin']">
+            <div class="container">
+                <app-pay-for-the-car></app-pay-for-the-car>
+            </div>
+        </tab>
+        <tab heading="Rent the car" *appHasRole="['Admin']">
+            <div class="container">
+                <app-rent-the-car></app-rent-the-car>
+            </div>
+        </tab>
+    </tabset>
+    
+</div>

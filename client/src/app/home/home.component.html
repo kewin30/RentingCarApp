@@ -1,0 +1,26 @@
+<div class="container">
+    <div *ngIf="!registerMode && !informationMode" style="text-align: center;">
+        <h1>Find your new car!</h1>
+        <p class="lead">Explore your cars by signing up today! Get started and discover the perfect ride for you</p>
+        <div class="text-center">
+            <button (click)="registerToggle()" class="btn btn-primary btn-lg me-2">Register</button>
+            <button (click)="informationToggle()" class="btn btn-primary btn-info btn-lg">Learn more</button>
+        </div>
+    </div>
+
+    <div *ngIf="informationMode">
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <app-information-panel (cancelRegister)="cancelinformationMode($event)"></app-information-panel>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="registerMode" class="container">
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+            </div>
+        </div>
+    </div>
+</div>

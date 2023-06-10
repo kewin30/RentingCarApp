@@ -1,0 +1,121 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h3>Get User Data</h3>
+        <div class="form-group">
+          <label for="userId">User ID:</label>
+          <input type="number" class="form-control" id="userId" [(ngModel)]="userId">
+        </div>
+        <button class="btn btn-primary" (click)="getUserData()">Get User</button>
+      </div>
+    </div>
+  
+    <div class="row mt-4" *ngIf="userData">
+      <div class="col-md-6">
+        <h4>User Details</h4>
+        <table class="table table-bordered">
+          <tr>
+            <th>Date of Birth:</th>
+            <td>{{ userData.dateOfBirth }}</td>
+          </tr>
+          <tr>
+            <th>Login:</th>
+            <td>{{ userData.login }}</td>
+          </tr>
+          <tr>
+            <th>Gender:</th>
+            <td>{{ userData.gender }}</td>
+          </tr>
+          <tr>
+            <th>Pesel:</th>
+            <td>{{ userData.pesel }}</td>
+          </tr>
+          <tr>
+            <th>ID Number:</th>
+            <td>{{ userData.idNumber }}</td>
+          </tr>
+          <tr>
+            <th>Last Name:</th>
+            <td>{{ userData.lastName }}</td>
+          </tr>
+        </table>
+  
+        <h4>Address</h4>
+        <table class="table table-bordered">
+          <tr>
+            <th>Street:</th>
+            <td>{{ userData.address?.street }}</td>
+          </tr>
+          <tr>
+            <th>House Number:</th>
+            <td>{{ userData.address?.houseNumber }}</td>
+          </tr>
+          <tr>
+            <th>City:</th>
+            <td>{{ userData.address?.city }}</td>
+          </tr>
+          <tr>
+            <th>Country:</th>
+            <td>{{ userData.address?.country }}</td>
+          </tr>
+          <tr>
+            <th>ZIP Code:</th>
+            <td>{{ userData.address?.zipCode }}</td>
+          </tr>
+        </table>
+  
+        <h4>Cars</h4>
+        <div *ngIf="userData.cars && userData.cars.length > 0" class="table">
+          <div *ngFor="let car of userData.cars; let i = index">
+            <h5>Car {{ i + 1 }}</h5>
+            <table class="table table-bordered">
+              <tr>
+                <th>VIN:</th>
+                <td>{{ car.vin }}</td>
+              </tr>
+              <tr>
+                <th>GPS Enabled:</th>
+                <td>{{ car.gpsEnabled }}</td>
+              </tr>
+              <tr>
+                <th>Plate:</th>
+                <td>{{ car.plate }}</td>
+              </tr>
+              <tr>
+                <th>Model:</th>
+                <td>{{ car.model }}</td>
+              </tr>
+              <tr>
+                <th>Car Year:</th>
+                <td>{{ car.carYear }}</td>
+              </tr>
+              <tr>
+                <th>Color:</th>
+                <td>{{ car.color }}</td>
+              </tr>
+              <tr>
+                <th>Weight:</th>
+                <td>{{ car.weight }}</td>
+              </tr>
+              <tr>
+                <th>Prize for Day:</th>
+                <td>{{ car.prizeForDay }}</td>
+              </tr>
+              <tr>
+                <th>Prize for Week:</th>
+                <td>{{ car.prizeForWeek }}</td>
+              </tr>
+              <tr>
+                <th>Place:</th>
+                <td>{{ car.place }}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div *ngIf="userData.cars && userData.cars.length === 0">
+          <p>This User doesn't have any cars!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  

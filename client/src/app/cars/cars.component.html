@@ -1,0 +1,27 @@
+<div class="card-container">
+    <div *ngFor="let car of cars" class="card mb-4">
+        <div class="card-img-wrapper">
+            <img [src]="car.url" [alt]="car.model" class="card-img-top">
+            <ul class="list-inline member-icons animate text-center">
+                <li class="list-inline-item">
+                    <button class="btn btn-primary" (click)="reserveCar(car)"><i class="fa fa-shopping-cart fa-2x"></i></button>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body p-1">
+            <h4 class="card-title text-center mb-1">
+                {{car.model}}
+            </h4>
+            <h5 class="card-title text-center mb-1">
+                Year: {{car.carYear}}, Weight: {{car.weight}}
+            </h5>
+            <h5 class="card-title text-center mb-1">
+                One day: {{car.prizeForDay}}, one week: {{car.prizeForWeek}}
+            </h5>
+            <h6 class="card-title text-center mb-1">
+                Color: {{car.color}}
+            </h6>
+            <p class="card-text text-muted text-center">{{car.place}}</p>
+        </div>
+    </div>
+</div>

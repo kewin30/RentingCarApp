@@ -1,0 +1,25 @@
+<div class="container">
+    <h1>User Before Component</h1>
+    <div class="form-group">
+      <label for="vinInput">Enter VIN:</label>
+      <input type="text" class="form-control" id="vinInput" [(ngModel)]="vin">
+    </div>
+    <button class="btn btn-primary" (click)="getUserData()">Get User Data</button>
+    <hr>
+    <div *ngIf="userData">
+      <h2>User Data</h2>
+      <p>Date of Birth: {{ userData.dateOfBirth }}</p>
+      <p>Login: {{ userData.login }}</p>
+      <p>Gender: {{ userData.gender }}</p>
+      <p>Pesel: {{ userData.pesel }}</p>
+      <p>ID Number: {{ userData.idNumber }}</p>
+      <p>Last Name: {{ userData.lastName }}</p>
+      <h3>Address</h3>
+      <p>Zip Code: {{ userData.address.zipCode }}</p>
+      <p>Country: {{ userData.address.country }}</p>
+      <p>City: {{ userData.address.city }}</p>
+      <p>Street: {{ userData.address.street }}</p>
+      <p>House Number: {{ userData.address.houseNumber }}</p>
+    </div>
+  </div>
+  

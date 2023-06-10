@@ -1,0 +1,17 @@
+<form [formGroup]="registerForm" (ngSubmit)="registerForm.valid && rentTheCar()" autocomplete="off">
+    <app-text-input [formControl]="$any(registerForm.controls['vin'])" [label]="'Vin'"></app-text-input>
+    <app-date-picker [formControl]="$any(registerForm.controls['rentedFrom'])"
+        [label]="'Rented from: '"></app-date-picker>
+    <app-date-picker [formControl]="$any(registerForm.controls['rentedTo'])"
+        [label]="'Rented to: '"></app-date-picker>
+    <button [disabled]="!registerForm.valid" class="btn btn-success me-2" type="submit">Rent the car</button>
+</form>
+
+<div *ngIf="data">
+    <h2>Data received:</h2>
+    <p>Prize: {{ data.prize }}</p>
+    <p>Rented From: {{ data.rentedFrom }}</p>
+    <p>Rented To: {{ data.rentedTo }}</p>
+    <p>Model: {{ data.model }}</p>
+    <p>Plate: {{ data.plate }}</p>
+</div>
